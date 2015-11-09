@@ -1,0 +1,30 @@
+<p><%= @party.name %> updated their RSVP!</p>
+
+<% if @party.people.find_by(attending: true)  %>
+  <h4>Attending</h4>
+  <ul>
+    <% @party.people.where(attending: true).each do |person| %>
+      <li><%= person.first_name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @party.people.find_by(attending: false) %>
+  <h4>Not Attending</h4>
+  <ul>
+    <% @party.people.where(attending: false).each do |person| %>
+      <li><%= person.first_name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% if @party.comments.strip.length > 0 %>
+  <h4>Comments</h4>
+  <%= @party.comments %>
+<% end %>
+
+<hr>
+
+<a href="#reports_summary">View Attendance Summary</a><br>
+<a href="#/reports_attending?filter=rsvped">View RSVP list</a>

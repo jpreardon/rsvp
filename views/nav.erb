@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="large-10 large-offset-1 columns end">
+		<!-- Nav -->
+		<div class="icon-bar label-right four-up small">
+			<a class="item" href="#header">
+				<i class="fa fa-heart"></i>
+				<label>Our Story</label>
+			</a>
+
+			<a class="item" href="#reception">
+				<i class="fa fa-glass"></i>
+				<label>Reception</label>
+			</a>
+
+			<a class="item" href="#travel">
+				<i class="fa fa-plane"></i>
+				<label>Travel</label>
+			</a>
+
+			<% if @party.rsvp %>
+				<a class="item rsvped" href="#rsvp">
+					<i class="fa fa-check"></i>
+					<label>RSVP</label>
+				</a>
+			<% else %>
+				<a class="item not-rsvped" href="#rsvp">
+					<i class="fa fa-pencil"></i>
+					<label>RSVP</label>
+				</a>
+			<% end %>
+		</div>
+	</div>
+	<hr/>
+</div>

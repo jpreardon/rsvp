@@ -1,0 +1,106 @@
+<div class="row">
+	<div class="large-12 columns text-center">
+		<h2 id="rsvp">RSVP</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-6 large-offset-3 small-10 small-offset-1 columns end rsvp">
+		<h3><%= @party.name %></h3>
+
+		<%if !@party.rsvp || params[:update] %>
+
+			<% if @party.rsvp_passed %>
+				<p>Sadly, the RSVP deadline has passed. We have not received an online RSVP for you!</p>
+				<p>Don't worry, we will be contacting you shortly to find out if you'll be able to attend.  Or, please feel give us a call at <a href="tel:2128675309">(212) 867-5309</a>.
+				<p><a href="/logout" class="change-ticket">enter a different ticket number</a></p>
+
+			<% else %>
+
+				<p>We hope you'll be able to join us on July 4th!</p>
+				<p>Please let us know who will be attending by <%= @party.rsvp_by %>.</p>
+
+				<% if !@message.nil? %>
+		      <div data-alert class="alert-box alert radius">
+		        <%= @message %>
+		        <a href="#" class="close">&times;</a>
+		      </div>
+		    <% end %>
+
+				<form data-abide action="/#rsvp" method="POST">
+					<table class="attending">
+		      <% @party.people.each do |person| %>
+						<tr>
+							<td>
+								<label class="guest-name" for="attending[<%= person.id %>]">
+									<%= person.first_name %>
+								</label>
+							</td>
+							<td>
+								<input required type="radio" name="attending[<%= person.id %>]" value="true" id="guest-<%= person.id %>-yes" <% if person.attending %> checked <% end %> />
+								<label for="guest-<%= person.id %>-yes">yes</label>
+								<input required type="radio" name="attending[<%= person.id %>]" value="false" id="guest-<%= person.id %>-no" <% if !person.attending && !person.attending.nil? %> checked <% end %> />
+								<label for="guest-<%= person.id %>-no">no</label>
+								<small class="error">please select yes or no</small>
+							</td>
+						</tr>
+		      <% end %>
+				</table>
+		      <label for="comments">Comments</label>
+		      <textarea name="comments" id="comments" rows="4" cols="20"><%= @party.comments %></textarea>
+		      <input type="submit" value="RSVP" class="button radius success"> <a href="/logout" class="change-ticket">enter a different ticket number</a>
+		    </form>
+			<% end %>
+
+    <% else %>
+
+			<p>We thank you kindly for your RSVP!</p>
+
+			<p>Here is who we are expecting (or not expecting as the case may be):</p>
+
+			<div class="row">
+				<div class="large-4 columns">
+					<% if @party.people.find_by(attending: true)  %>
+		        <h5>Attending</h5>
+		        <ul class="no-bullet guest-name">
+		          <% @party.people.where(attending: true).each do |person| %>
+		            <li><%= person.first_name %></li>
+		          <% end %>
+		        </ul>
+		      <% end %>
+				</div>
+				<div class="large-4 columns end">
+		      <% if @party.people.find_by(attending: false) %>
+		        <h5>Not Attending</h5>
+		        <ul class="no-bullet guest-name">
+		          <% @party.people.where(attending: false).each do |person| %>
+		            <li><%= person.first_name %></li>
+		          <% end %>
+		        </ul>
+		      <% end %>
+				</div>
+			</div>
+
+
+      <% if @party.comments.strip.length > 0 %>
+        <h5>Comments</h5>
+        <p><%= @party.comments %></p>
+      <% end %>
+
+      <% if !@party.rsvp_passed %>
+				<p>You can change your response any time before <%= @party.rsvp_by %>.</p>
+        <form action="/#rsvp" method="get">
+          <input type="hidden" name="update" value="true" />
+          <input type="submit" value="Change RSVP" class="button radius" />
+					<a href="/logout" class="change-ticket">enter a different ticket number</a>
+        </form>
+      <% else %>
+				<a href="/logout" class="change-ticket">enter a different ticket number</a>
+			<% end %>
+
+
+    <% end %>
+
+  </div>
+	<hr/>
+</div>

@@ -1,0 +1,46 @@
+<%= erb :header %>
+
+<div class="row">
+  <div class="large-8 large-offset-2 columns end">
+
+    <h1>Attendence Report</h1>
+    <a href="/reports">Reports Home</a>
+    <table style="width: 100%;">
+      <tr>
+        <th>Party Name</th>
+        <th>Ticket Number</th>
+        <th>RSVPed</th>
+        <th>RSVP By Date</th>
+      </tr>
+
+      <% @parties.each do |party| %>
+        <tr>
+          <td><%= party.name %></td>
+          <td><%= party.ticket_number %></td>
+          <td><%= booleanToFA(party.rsvp) %></td>
+          <td><%= party.rsvp_by %></td>
+        </tr>
+        <tr>
+          <td><%= party.comments %></td>
+          <td colspan="3">
+            <table style="width: 100%;">
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Attending</th>
+              </tr>
+                <% party.people.each do |person| %>
+                  <tr>
+                    <td><%= person.first_name %></td>
+                    <td><%= person.category.name %></td>
+                    <td><%= booleanToFA(person.attending) %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+    </table>
+    <a href="/reports">Reports Home</a>
+  </div>
+</div>

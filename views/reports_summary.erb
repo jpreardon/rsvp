@@ -1,0 +1,35 @@
+<%= erb :header %>
+
+<div class="row">
+  <div class="large-8 large-offset-2 columns end">
+
+    <h1>Attendance Summary</h1>
+    <a href="/reports">Reports Home</a>
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Attending</th>
+        <th>Not Attending</th>
+        <th>Unknown</th>
+      </tr>
+      <tr>
+        <td>Adult</td>
+        <td><%= @adults_attending %></td>
+        <td><%= @adults_not_attending %></td>
+        <td><%= @adults_unknown %></td>
+      </tr>
+      <tr>
+        <td>Child</td>
+        <td><%= @children_attending %></td>
+        <td><%= @children_not_attending %></td>
+        <td><%= @children_unknown %></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td><%= @total_attending %></td>
+        <td><%= @total_not_attending %></td>
+        <td><%= @total_unknown %></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,184 @@
+@import url("/css/font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+
+/*********************************************************************************/
+/* Headers                                                                       */
+/*********************************************************************************/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #BF3C0A;
+}
+
+#header h1 a {
+  color: #BF3C0A;
+	font-weight: 400;
+  text-transform: uppercase;
+}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+.footer {
+  color: grey;
+}
+
+/*********************************************************************************/
+/* Icon bar                                                                      */
+/*********************************************************************************/
+
+.icon-bar {
+  width: 100%;
+  font-size: 0;
+  display: inline-block;
+  background: #ffffff;
+}
+
+.icon-bar > * label {
+  color: #838383;
+}
+
+.icon-bar > * i {
+  color: #838383;
+}
+
+.icon-bar > a:hover {
+  background: #ffffff;
+}
+
+.icon-bar > a:hover label {
+  color: #838383;
+}
+
+.icon-bar > a:hover i {
+  color: #BF3C0A;
+}
+
+.icon-bar > a.active {
+  background: #cccccc;
+}
+
+.icon-bar > a.active label {
+  color: #FFFFFF;
+}
+
+.icon-bar > a.active i {
+  color: #FFFFFF;
+}
+
+
+/* Override the label-right class on medium and small screens */
+@media only screen and (max-width: 40.063em) {
+  .icon-bar.label-right > * i, .icon-bar.label-right > * img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .icon-bar.label-right > * i + label, .icon-bar.label-right > * img + label {
+    margin-top: 0;
+  }
+
+  .icon-bar.label-right > * label {
+    display: block;
+  }
+}
+
+/* Make the label tiny on smaller screens */
+@media only screen and (max-width: 30.063em) {
+  .icon-bar > * label {
+    font-size: 0.47em;
+  }
+}
+
+
+/*********************************************************************************/
+/* RSVP Stylings                                                                 */
+/*********************************************************************************/
+
+/* This is for the nav bar */
+
+.rsvped i, .rsvped label {
+  color: green;
+}
+
+.not-rsvped i, .not-rsvped label {
+  color: #BF3C0A;
+}
+
+a:hover.not-rsvped i {
+  color: #838383;
+}
+
+a.change-ticket {
+  font-size: small;
+  align: right;
+  display: inline-block;
+}
+
+.rsvp input[type="submit"] {
+  margin-right: 2em;
+}
+
+div.party-name {
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.party-name h3 {
+  float: left;
+  margin: 0;
+}
+
+div.rsvp {
+  padding: 1.5rem;
+  border: 1px solid rgb(221, 221, 221);
+  margin-bottom: 2rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Kickin it old school by using a table for layout :P */
+
+table.attending {
+  border: 0;
+}
+
+.attending tr, .attending th, .attending td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: white;
+}
+
+table.attending input {
+  margin: 0;
+}
+
+table.attending tr td {
+  padding: 0;
+}
+
+.guest-name li {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+label.guest-name {
+  font-weight: bold;
+  margin-right: 1em;
+  margin-left: 2em;
+}
+
+table.attending input[type="radio"] + label {
+  margin-right: 10px;
+  margin-left: 4px;
+}
+
+a.inline {
+  text-decoration: underline;
+}

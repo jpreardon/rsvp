@@ -1,0 +1,42 @@
+<%= erb :header %>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <h1>Attendance List (<%= @filter_name %>)</h1>
+    View: <a href="/reports_attending">All</a> &#8226; <a href="/reports_attending?filter=attending">Attending</a> &#8226; <a href="/reports_attending?filter=viewed">Viewed</a> &#8226; <a href="/reports_attending?filter=rsvped">RSVPed</a> &#8226; <a href="/reports_attending?filter=norsvp">No RSVP</a> | <a href="/reports">Reports Home</a>
+    <table>
+      <tr>
+        <th>Ticket Number</th>
+        <th>Party Name</th>
+        <th>RSVP?</th>
+        <th>Number Attending</th>
+        <th>Viewed</th>
+        <th>Updated</th>
+      </tr>
+      <% @parties.each do |party| %>
+        <tr>
+          <td><%= party.ticket_number %></td>
+          <td><%= party.name %></td>
+          <td><%= booleanToFA(party.rsvp) %></td>
+          <td>
+            <% if party.rsvp %>
+              <% people_list = "" %>
+              <% party.people.each do |person| %>
+                <% people_list += " " + person.first_name + ': ' + (person.attending ? "yes" : "no") + "," %>
+              <% end %>
+              <span data-tooltip aria-haspopup="true" class="has-tip" title="<%= people_list.chop %>">
+                <%= party.number_attending %>
+              </span>
+            <% else %>
+              <%= party.number_attending %>
+            <% end %>
+          </td>
+          <td><%= format_date(party.viewed_at) %></td>
+          <td><%= format_date(party.updated_at) %></td>
+        </tr>
+      <% end %>
+    </table>
+    View: <a href="/reports_attending">All</a> &#8226; <a href="/reports_attending?filter=attending">Attending</a> &#8226; <a href="/reports_attending?filter=viewed">Viewed</a> &#8226; <a href="/reports_attending?filter=rsvped">RSVPed</a> &#8226; <a href="/reports_attending?filter=norsvp">No RSVP</a> | <a href="/reports">Reports Home</a>
+  </div>
+</div>

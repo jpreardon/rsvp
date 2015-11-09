@@ -1,0 +1,20 @@
+<%= erb :header %>
+
+<div class="row">
+  <div class="large-8 large-offset-2 columns end">
+    <h1>Reports</h1>
+    <ul>
+      <li>Attendance List
+        <ul>
+          <li><a href="/reports_attending">All</a></li>
+          <li><a href="/reports_attending?filter=attending">Attending</a></li>
+          <li><a href="/reports_attending?filter=viewed">Viewed</a></li>
+          <li><a href="/reports_attending?filter=rsvped">RSVPed</a></li>
+          <li><a href="/reports_attending?filter=norsvp">No RSVP</a></li>
+        </ul>
+      </li>
+      <li><a href="/reports_summary">Attendance Summary</a></li>
+      <li><a href="/reports_attending_full">Full Attendance Report</a></li>
+    </ul>
+  </div>
+</div>

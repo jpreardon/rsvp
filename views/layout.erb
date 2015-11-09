@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>You &#43; Me</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="/js/vendor/modernizr.js"></script>
+    <link rel="shortcut icon" href="wedding-cake.ico">
+
+    <% if settings.production? %>
+      <%= erb :analytics %>
+    <% end %>
+
+  </head>
+  <body>
+
+		<%= yield %>
+
+		<div class="row">
+			<div class="large-6 medium-8 large-offset-3 medium-offset-2 columns end text-center">
+				<p>
+          Questions? Please email or call us.<br>
+          <a href="mailto:somebody@example.com">somebody@example.com</a> &#8226; <a href="tel:2128675309">(212) 867-5309</a>
+        </p>
+			</div>
+		</div>
+		<div class="row footer">
+			<div class="large-6 medium-8 large-offset-3 medium-offset-2 columns end text-center">
+				<p>&copy; 2015 You &#9825; Me</p>
+			</div>
+		</div>
+
+
+	<script src="/js/vendor/jquery.js"></script>
+	<script src="/js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+	</body>
+</html>

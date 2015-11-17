@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a little site we put together for our wedding reception. The code currently in this repository has been sanitized a bit to remove our information. I'm putting this here mostly for the tiny RSVP app contained within. I hope that it might be useful to at least one other person. We've got kind of a travel theme going on with the invites, which may be evident the "ticketing/check-in" nomenclature we're using here.
+This is a little site we put together for our wedding reception ([more long winded explanation on my site](http://jpreardon.com/projects/wedding-website/)). The code currently in this repository has been sanitized a bit to remove our information. I'm putting this here mostly for the tiny RSVP app contained within. I hope that it might be useful to at least one other person. We've got kind of a travel theme going on with the invites, which may be evident the "ticketing/check-in" nomenclature we're using here.
 
 ## Instructions and a word of warning
 
